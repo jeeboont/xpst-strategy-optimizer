@@ -206,7 +206,7 @@ def render_optimization_sidebar():
     # Asset Selection
     st.markdown("#### 📈 Select Asset")
     downloader = YFinanceDataDownloader()
-    selected_asset = downloader.render_asset_selection_widget()
+    selected_asset = downloader.render_asset_selection_widget("optimization")
     
     if selected_asset:
         st.session_state.selected_assets = [selected_asset]
