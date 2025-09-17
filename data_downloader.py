@@ -216,14 +216,14 @@ class YFinanceDataDownloader:
         except Exception:
             return []
     
-    def render_asset_selection_widget(self) -> Optional[str]:
+    def render_asset_selection_widget(self, widget_id: str = "default") -> Optional[str]:
         """Render asset selection widget and return selected asset"""
         
         # Search input
         search_query = st.text_input(
             "Search for asset (symbol or name):",
             placeholder="e.g., BTCUSD, Apple, EURUSD...",
-            key="asset_search"
+            key=f"asset_search_{widget_id}"
         )
         
         # Auto-suggest as user types
@@ -254,7 +254,7 @@ class YFinanceDataDownloader:
                     st.caption(f"Sector: {result.get('sector', 'N/A')}")
                 
                 with col_select:
-                    if st.button("Select", key=f"select_{result['symbol']}_{i}"):
+                    if st.button("Select", key=f"select_{result['symbol']}_{i}_{widget_id}"):
                         selected_asset = result['symbol']
                         st.session_state.show_search_results = False
                         st.session_state.last_search_query = ""
@@ -278,7 +278,7 @@ class YFinanceDataDownloader:
             cols = st.columns(3)
             for i, (symbol, name) in enumerate(popular_assets):
                 with cols[i % 3]:
-                    if st.button(f"{symbol}", key=f"quick_{symbol}", help=name, use_container_width=True):
+                    if st.button(f"{symbol}", key=f"quick_{symbol}_{widget_id}", help=name, use_container_width=True):
                         selected_asset = symbol
                         break
         
@@ -372,7 +372,7 @@ class YFinanceDataDownloader:
         
         with col1:
             st.markdown("**Select Assets:**")
-            selected_asset = self.render_asset_selection_widget()
+            selected_asset = self.render_asset_selection_widget("download")
             
             if selected_asset and selected_asset not in st.session_state.selected_assets:
                 st.session_state.selected_assets.append(selected_asset)
