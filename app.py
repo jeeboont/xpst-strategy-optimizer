@@ -356,68 +356,63 @@ def render_colab_optimization_interface():
     col_nb1, col_nb2 = st.columns(2)
     
     with col_nb1:
-        # Complete notebook (combined)
-        with open('/mnt/user-data/outputs/XPST_Optimization_Colab.py', 'r') as f:
-            colab_part1 = f.read()
+        # Provide notebook download instructions instead of direct file access
+        st.markdown("""
+        **📓 Google Colab Notebook**
         
-        with open('/mnt/user-data/outputs/XPST_Optimization_Colab_Part2.py', 'r') as f:
-            colab_part2 = f.read()
+        To get the optimization notebook:
+        1. **Go to**: https://colab.research.google.com
+        2. **Create new notebook**
+        3. **Copy the code** from the GitHub repository
+        4. **Or use the template** provided below
         
-        complete_notebook = colab_part1 + "\n\n" + colab_part2
+        The notebook is also available in the GitHub repository files.
+        """)
         
-        st.download_button(
-            label="📓 Download Complete Notebook",
-            data=complete_notebook,
-            file_name="XPST_Optimization_Colab.py",
-            mime="text/x-python",
-            use_container_width=True
-        )
+        # Provide a simple button that gives instructions
+        if st.button("📝 Get Colab Instructions", use_container_width=True):
+            st.success("✅ Check your GitHub repository for the XPST_Optimization_Notebook.ipynb file!")
     
     with col_nb2:
         # Quick setup guide
-        setup_guide = """
-# XPST Colab Quick Setup Guide
-
-## 1. Upload to Google Colab
-1. Go to https://colab.research.google.com
-2. Upload the downloaded .py file
-3. Or create new notebook and copy-paste the code
-
-## 2. Configuration
-Edit the OPTIMIZATION_CONFIG in Cell 2:
-```python
-OPTIMIZATION_CONFIG = {
-    "asset": "BTC-USD",        # Your asset
-    "timeframe": "2m",         # Your timeframe  
-    "period": "7d",           # Data period
-    "steps": ["step1", "step2"], # Optimization steps
-    "max_combinations": 1000   # Max combinations
-}
-```
-
-## 3. Run Optimization
-- Runtime → Run All
-- Or run cells individually
-- Monitor progress in output
-
-## 4. Download Results  
-- Configuration files (.cbotset/.indiset)
-- Results JSON file
-- Import to cTrader
-
-## 5. Performance Tips
-- Use Colab Pro for fastest results
-- Enable GPU if available
-- Increase max_combinations for better optimization
-"""
+        st.markdown("""
+        **📋 Quick Setup Guide**
         
-        st.download_button(
-            label="📋 Download Setup Guide",
-            data=setup_guide,
-            file_name="XPST_Colab_Setup_Guide.md",
-            mime="text/markdown",
-            use_container_width=True
-        )
+        **1. Get the Notebook:**
+        - Download `XPST_Optimization_Notebook.ipynb` from your GitHub repo
+        - Or create a new Colab notebook and copy the code
+        
+        **2. Configuration:**
+        Edit the OPTIMIZATION_CONFIG in Cell 2:
+        ```python
+        OPTIMIZATION_CONFIG = {
+            "asset": "BTC-USD",        # Your asset
+            "timeframe": "2m",         # Your timeframe  
+            "period": "7d",           # Data period
+            "steps": ["step1", "step2"], # Optimization steps
+            "max_combinations": 1000   # Max combinations
+        }
+        ```
+        
+        **3. Run Optimization:**
+        - Runtime → Run All
+        - Or run cells individually
+        - Monitor progress in output
+        
+        **4. Download Results:**
+        - Configuration files (.cbotset/.indiset)
+        - Results JSON file
+        - Import to cTrader
+        
+        **5. Performance Tips:**
+        - Use Colab Pro for fastest results
+        - Enable GPU if available
+        - Increase max_combinations for better optimization
+        """)
+        
+        if st.button("📋 Show Colab URL", use_container_width=True):
+            st.info("🔗 Go to: https://colab.research.google.com")
+            st.info("📁 Upload the .ipynb file from your GitHub repository")
 
 def render_optimization_interface():
     """Render the strategy optimization interface"""
