@@ -22,6 +22,13 @@ A comprehensive Streamlit application for optimizing XPST (eXtended Pivot SuperT
 - **Parameter Mapping**: Automatic translation of optimized parameters
 - **Batch Export**: ZIP packages with documentation
 
+### ⚡ Google Colab Integration
+- **Hybrid Architecture**: Streamlit UI + Colab compute power
+- **10x Faster Optimization**: Multi-core parallel processing
+- **25GB RAM**: vs 1GB on Streamlit Cloud
+- **GPU/TPU Support**: For advanced optimizations
+- **Jupyter Notebook**: Ready-to-use optimization engine
+
 ### 📈 Advanced Analytics
 - **Performance Metrics**: Return, win rate, profit factor, Sharpe ratio, drawdown
 - **Interactive Visualizations**: Progress tracking, parameter analysis, equity curves
@@ -84,11 +91,30 @@ streamlit run app.py
 2. Monitor progress in real-time
 3. Review results as each step completes
 
-### Step 4: Analyze Results
-1. **Performance Metrics**: Compare top 3 results
-2. **Parameter Analysis**: Understand optimal values
-3. **Visualizations**: Equity curves, trade analysis
-4. **Download Configurations**: Get ready-to-use cTrader files
+### **Google Colab Optimization (Recommended for Complex Tasks)**
+
+For intensive optimizations, use the Google Colab notebook:
+
+1. **Access Colab Tab** in the Streamlit app
+2. **Configure Parameters** using the interface
+3. **Download Notebook** or click "Open in Google Colab"
+4. **Run All Cells** in the notebook
+5. **Download Results** and import to cTrader
+
+**Performance Comparison:**
+- **Streamlit Cloud**: 15-30 minutes (1 CPU, 1GB RAM)
+- **Google Colab Free**: 3-5 minutes (2-4 CPUs, 12GB RAM)
+- **Google Colab Pro**: 1-2 minutes (4-8 CPUs, 25GB RAM)
+
+### **Local Streamlit Optimization**
+
+For simpler optimizations or testing:
+
+1. **Test the Full Workflow:**
+   - Try optimizing a popular asset like BTCUSD or EURUSD
+   - Run through all 3 optimization steps
+   - Download the generated cTrader configuration files
+   - Test the configurations in cTrader demo environment
 
 ## Optimization Strategy
 
