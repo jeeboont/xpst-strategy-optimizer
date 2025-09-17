@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 David Tan
+Copyright (c) 2025 XPST Strategy Optimizer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+TRADING DISCLAIMER:
+This software is provided for educational and research purposes only. Trading 
+involves substantial risk of loss and is not suitable for all investors. Past 
+performance is not indicative of future results. The authors are not responsible 
+for any trading losses incurred through the use of this software. Always consult 
+with qualified financial professionals before making investment decisions and 
+test thoroughly on demo accounts before live trading.
