@@ -44,8 +44,7 @@ CHANGELOG = {
             "Added comprehensive visualization suite",
             "Implemented concurrent optimization processing"
         ]
-    }
-}
+    },
     "2.2.0": {
         "date": "2025-08-25",
         "changes": [
@@ -53,6 +52,9 @@ CHANGELOG = {
             "Implemented automatic period limits based on yfinance constraints",
             "Added smart timeframe validation and recommendations",
             "Enhanced download progress tracking"
+        ]
+    }
+}
         ]
     }
 }
